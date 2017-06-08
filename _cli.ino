@@ -55,6 +55,13 @@ CLI_STS lw_cli(char c) {
 CLI_STS lw_cli_parse(char* _buf) {
   uint8_t i,j=0;
   char _i_buf[CLI_MAX_CMD_BUF];
+
+  char cmd[CLI_MAX_CMD_BUF];
+  char p1[CLI_MAX_CMD_BUF];
+  char p2[CLI_MAX_CMD_BUF];
+  char p3[CLI_MAX_CMD_BUF];
+  uint8_t s_map[CLI_MAX_CMDS] = { cmd, p1, p2, p3 };
+  
   cli_store_ind = 0;
 
   //split up cmd words
@@ -76,13 +83,16 @@ CLI_STS lw_cli_parse(char* _buf) {
     memset(_i_buf,'\0',CLI_MAX_CMD_BUF);
     while (char c=cli_store[i * CLI_MAX_CMD_BUF + j]) {
       if (j >= CLI_MAX_CMD_BUF) { return CLI_OUTOFBOUNDS; }
-      _i_buf[j++] = c;
+      *(&s_map[i]+j++) = c;
     }
+    *(&s_map[i]+j++) = '\0';
     Serial.print("\n\r");
-    Serial.print(_i_buf);
+    Serial.print(s_map[i]);
   }
 
   //start parsing commands finally
+  
+  
   return CLI_OK;
 }
 

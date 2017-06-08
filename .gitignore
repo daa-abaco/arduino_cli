@@ -1,0 +1,14 @@
+#arduino build artifacts
+arduino_*
+
+#logfiles
+*.log
+
+#compiler trash
+*.o
+*.a
+*.s
+*.elf
+*.hex
+*.cache
+*.json
