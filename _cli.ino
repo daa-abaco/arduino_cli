@@ -29,13 +29,13 @@ CLI_STS lw_cli(char c) {
     }
     else if (c == 0xd || (c >= 0x20 && c <= 0x7E)) {
       //handle legitimate chars
-      Serial.print(c);
       if (IS_NEWLINE(c)) {
         ret = lw_cli_parse(cli_buf);    
         lw_cli_init();
       } 
       else {
         //add to buffer
+        Serial.print(c);
         cli_buf[cli_buf_ind++] = c;
       }
     } 
@@ -60,7 +60,7 @@ CLI_STS lw_cli_parse(char* _buf) {
   char p1[CLI_MAX_CMD_BUF];
   char p2[CLI_MAX_CMD_BUF];
   char p3[CLI_MAX_CMD_BUF];
-  uint8_t s_map[CLI_MAX_CMDS] = { cmd, p1, p2, p3 };
+  uint8_t s_map[CLI_MAX_CMDS] = { &cmd, &p1, &p2, &p3 };
   
   cli_store_ind = 0;
 
@@ -86,10 +86,25 @@ CLI_STS lw_cli_parse(char* _buf) {
       *(&s_map[i]+j++) = c;
     }
     *(&s_map[i]+j++) = '\0';
-    Serial.print("\n\r");
-    Serial.print(s_map[i]);
-  }
+    //CLI_DEBUG_PRINT("\n\r");
 
+    j=0;
+   #ifdef CLI_DEBUG
+    memset(str,'\0',MAX_STR_BUF);
+    strcat(str,"CMD");
+    strcat(str,i);
+    strcat(str,": ");
+    //CLI_DEBUG_PRINT(str);
+   #endif
+  }
+ #ifdef CLI_DEBUG
+  i,j=0;
+  CLI_DEBUG_PRINT("\n\r");
+  while(char c=*(&s_map[0]+j++) != '\0') {
+   CLI_DEBUG_PRINT((char)c);
+  }
+  CLI_DEBUG_PRINT("\n\r");
+ #endif
   //start parsing commands finally
   
   
@@ -122,14 +137,14 @@ CLI_STS lw_cli_init() {
 }
 
 void read_reg(void) {
-  Serial.print("\n\rread_reg");
+  CLI_DEBUG_PRINT("\n\rread_reg");
   return -1;
 }
 void write_reg(void) {
-  Serial.print("\n\rwrite_reg");
+  CLI_DEBUG_PRINT("\n\rwrite_reg");
   return -1;
 }
 void quit(void) {
-  Serial.print("\n\rquit");
+  CLI_DEBUG_PRINT("\n\rquit");
   return -1;
 }

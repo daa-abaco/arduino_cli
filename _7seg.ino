@@ -11,7 +11,7 @@
 #include "_cli.h"
 #define TERM_CHAR '\r'
 
-char str[70];
+char str[MAX_STR_BUF];
 char buf;
 
 char* cmd_buf[CLI_MAX_CMD_BUF];

@@ -12,6 +12,14 @@
 #define IS_NEWLINE(c)     c == '\n' || c == '\r' || (byte)c == 0x0d   
 #define IS_SPACE(c)       c == ' '
 
+#define CLI_DEBUG
+#ifdef CLI_DEBUG
+ #define CLI_DEBUG_PRINT(s)   Serial.print(s)
+ #define CLI_DEBUG_PRINTLN(s) Serial.print("\r\nDEBUG: ");Serial.print(s);Serial.print("\r\n")
+#else
+ #define CLI_DEBUG_PRINT(s)
+ #define CLI_DEBUG_PRINTLN(s)
+#endif
 #define CLI_DEFAULT_CMDS_
 #define CLI_MAX_CMD_BUF   12
 #define CLI_MAX_CMDS      4

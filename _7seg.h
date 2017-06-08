@@ -9,8 +9,8 @@
 
 #ifndef _7SEG_H_
 #define _7SEG_H_
-//cli stuff
-
+//buffers
+#define MAX_STR_BUF 70
 //pin connections
 #define PIN_DEC     2
 #define PIN_A       3
