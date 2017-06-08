@@ -1,0 +1,15 @@
+/home/boss/Arduino/_7seg/arduino_build/core/HardwareSerial0.cpp.o: \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/HardwareSerial0.cpp \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/Arduino.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/binary.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/WCharacter.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/WString.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/HardwareSerial.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/Stream.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/Print.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/Printable.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/USBAPI.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/variants/eightanaloginputs/pins_arduino.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/variants/eightanaloginputs/../standard/pins_arduino.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/HardwareSerial_private.h \
+ /root/.arduino15/packages/arduino/hardware/avr/1.6.19/cores/arduino/wiring_private.h
